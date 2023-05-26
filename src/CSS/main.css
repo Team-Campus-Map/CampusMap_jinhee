@@ -1,0 +1,154 @@
+:root {
+  --blue: #dba39a;
+  --lightblue: #fff5e4;
+  --gray: #333;
+}
+body {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.headerGroup {
+  background: url("/public/img/banner2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  position: relative;
+  border-radius: 0px 0px 130px 0px;
+}
+.header {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 3% 0;
+}
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 5%;
+}
+.logo {
+  height: 100px;
+  font-size: 1.8rem;
+  letter-spacing: 0.3rem;
+  color: white;
+  font-weight: bold;
+  animation: logo 1.2s ease-in-out forwards;
+}
+
+.main-menu-button {
+  z-index: 4;
+  display: grid;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 6%;
+  animation: menubtn 1.2s ease-in-out forwards;
+}
+.menu-icon {
+  fill: #ffffff;
+}
+.menu-icon:hover {
+  cursor: pointer;
+}
+.menu-icon:active {
+  cursor: pointer;
+}
+.menu-background {
+  position: fixed;
+  z-index: 2;
+  aspect-ratio: 1 / 1;
+  background: #07030a;
+  opacity: 0;
+  transition: 0.6s;
+  margin: 0;
+  translate: 810% -8%;
+}
+body.open .menu-background {
+  width: 11%;
+  height: 602px;
+  opacity: 0.8;
+  border-radius: 0px 0px 130px 0px;
+}
+body.open .menuGroup {
+  opacity: 1;
+  visibility: visible;
+}
+.menuGroup {
+  z-index: 3;
+  position: absolute;
+  margin-right: 5%;
+  align-items: center;
+  transition: 0.05s;
+  translate: 806% 30%;
+}
+
+.menuGroup nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 100px;
+}
+.menuGroup .menulink {
+  position: relative;
+  color: #f9f9f9;
+  font-size: 23px;
+  padding: 20px 0 20px;
+  text-decoration: none;
+  opacity: 0;
+  transition: 0.4s;
+}
+.menuGroup .menulink::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -26px;
+  translate: 0 -50%;
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid #ffffff;
+  border-right: 3px solid #ffffff;
+  opacity: 0;
+  rotate: 45deg;
+  transition: 0.3s;
+}
+.menuGroup .menulink:hover::after {
+  opacity: 1;
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    translate: -30px 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+body.open .menuGroup .menulink {
+  opacity: 1;
+  animation: appear 0.35s backwards;
+}
+/*애니메이션*/
+@keyframes logo {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menubtn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
