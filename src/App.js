@@ -1,18 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./Main/Main";
-import AuthPage from "./LoginSignUp/AuthPage";
+import { Routes, Route } from "react-router-dom";
+import AuthPage from "./Login_SignUp/AuthPage";
+import FindPw from "./Login_SignUp/Login/FindPw";
 function App() {
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/login" element={<AuthPage />} />
-        </Routes>
-      </Router>
-    </>
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/Login" element={<AuthPage />} />
+      <Route path="/FindPw" element={<FindPw />} />
+    </Routes>
   );
 }
 
