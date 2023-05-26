@@ -4,4 +4,4 @@ node_modules파일 커밋을 안했기 때문에 파일 새로 받을 시 항상
 ### `npm install`
 ### `npm start`
 ### `npm install react-router-dom`
-
+### `npm install sweetalert --save`
