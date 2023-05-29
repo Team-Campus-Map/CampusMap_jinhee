@@ -2,8 +2,10 @@
   /* COLORS */
   --white: #e9e9e9;
   --gray: #333;
-  --blue: #e5e3c9;
-  --lightblue: #b4cfb0;
+  --green1: #e5e3c9;
+  --green2: #faedcd;
+  --lightgreen1: #b4cfb0;
+  --lightgreen2: #a4bc92;
 
   /* RADII */
   --button-radius: 0.7rem;
@@ -16,6 +18,7 @@
 }
 
 body {
+  font-family: "Ubuntu", sans-serif;
   align-items: center;
   background-color: #f5ebe0;
   background-position: center;
@@ -107,7 +110,7 @@ body {
 }
 
 .overlay {
-  background-color: var(--lightblue);
+  background-color: var(--lightgreen);
   background: url(/public/img/banner.jpg);
   background-attachment: fixed;
   background-position: center;
@@ -160,11 +163,11 @@ body {
   background-color: var(--#F5EBE0);
   background-image: linear-gradient(
     90deg,
-    var(--blue) 0%,
-    var(--lightblue) 74%
+    var(--green1) 0%,
+    var(--lightgreen1) 74%
   );
   border-radius: 18px;
-  border: 0px solid var(--blue);
+  border: 0px solid var(--green1);
   color: #1a120b;
   cursor: pointer;
   font-size: 0.88rem;
@@ -187,7 +190,13 @@ body {
 .btn:focus {
   outline: none;
 }
-
+.btn:hover {
+  background-image: linear-gradient(
+    90deg,
+    var(--lightgreen1) 0%,
+    var(--green2) 74%
+  );
+}
 .form {
   background-color: var(--white);
   display: flex;

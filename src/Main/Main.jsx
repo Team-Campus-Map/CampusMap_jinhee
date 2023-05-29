@@ -1,43 +1,43 @@
 import React, { useEffect, useState } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import MainHeaderBtn from "./MainHeaderBtn";
-import mainstyle from "./mainheader.module.css";
-import MainContainer from "./MainContainer";
-import LuckydayInfoText from "./LuckydayInfoText";
+import { Link } from "react-router-dom";
+import Logo from "../Logo/Logo";
+import MainMenuButton from "./MainMenuButton";
+import Scroll from "./Scroll";
+import Card from "./Card";
+import CardComponent from "./CardComponent";
 import Footer from "../Footer/Footer";
-const Main = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-    });
-  }, []);
+import "../CSS/main.css";
+const Main = (props) => {
+  const [isHeaderVisible, setHeaderVisible] = useState(true);
 
-  const text = "Login";
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      if (scrollTop > 0 && isHeaderVisible) {
+        setHeaderVisible(false);
+      } else if (scrollTop === 0 && !isHeaderVisible) {
+        setHeaderVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isHeaderVisible]);
   return (
     <>
-      <div className={mainstyle.header}>
-        <div className={mainstyle.headerGroup}>
-          <div className={mainstyle.Luckyday}>LuckyDay</div>
-          <MainHeaderBtn text={text} />
+      <div
+        className={`headerGroup ${isHeaderVisible ? "fade-in" : "fade-out"}`}
+      >
+        <div className="header">
+          <Logo />
+          <MainMenuButton />
         </div>
-        <div className={mainstyle.scrolldown}>
-          <span>SCROLL DOWN</span>
-          <div className={mainstyle.box_scroll}>
-            <div className={mainstyle.iconScroll}></div>
-          </div>
-        </div>
-        <LuckydayInfoText />
-        {/*MainHeaderBtn의 className={`${mainstyle.button} ${mainstyle.fast} ${mainstyle.white} */}
       </div>
-
-      <MainContainer />
+      <Scroll />
+      <Card />
       <Footer />
-      {/* <div style={{ height: "900px" }}></div>
-      <div className={mainstyle.boxStyle} data-aos="fade-up">
-        <p>AOS 테스트3</p>
-      </div>
-      <div style={{ height: "500px" }}></div> */}
     </>
   );
 };

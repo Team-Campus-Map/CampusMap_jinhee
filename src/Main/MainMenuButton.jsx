@@ -36,8 +36,8 @@ const MainMenuButton = () => {
       </div>
       <div className="menu-background"></div>
       <div className="menuGroup">
-        <MainMenu href={linkProps.about.href} text="About" />
-        <MainMenu href={linkProps.login.href} text="Login" />
+        <MainMenu href={linkProps.about.href} text={linkProps.about.text} />
+        <MainMenu href={linkProps.login.href} text={linkProps.login.text} />
       </div>
     </>
   );

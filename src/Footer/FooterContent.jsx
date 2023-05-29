@@ -41,9 +41,10 @@ const FooterContent = (props) => {
       </footer>
       <div className={footerStyle.column + " " + footerStyle.link}>
         <h3>Links</h3>
-        <FooterContentGoLink link="Team" />
-        <FooterContentGoLink link="Menu" />
-        <FooterContentGoLink link="Seat" />
+        <FooterContentGoLink link="About" />
+        <FooterContentGoLink link="Campus Map" />
+        <FooterContentGoLink link="Calendar" />
+        <FooterContentGoLink link="TimeTable" />
         <FooterContentGoLink link="QnA" />
       </div>
     </>

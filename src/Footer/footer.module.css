@@ -1,17 +1,17 @@
 .footerBody {
-  margin: 0;
+  margin: 10% 0;
 
   padding: 40px 0 0 0;
   box-sizing: border-box;
-  color: #cfd2d6;
-  background: black;
+  color: #505050;
+  background: #c1d0b5;
   justify-content: space-between;
   display: flex;
 }
 /*content*/
 footer {
   bottom: 0;
-  background: black;
+  background: #c1d0b5;
   height: auto;
   width: 50%;
   display: flex;
@@ -58,7 +58,7 @@ footer {
 }
 /* copyright*/
 .footer-copyright {
-  background: #000;
+  background: #c1d0b5;
   padding: 0px 20px 50px 20px;
 }
 .footer-copyright p {
@@ -96,7 +96,7 @@ h3 {
   margin-top: 0.8em;
 }
 .ul .li a {
-  color: #a7a7a7;
+  color: #505050;
   text-decoration: none;
 }
 .ul .li a:hover {
