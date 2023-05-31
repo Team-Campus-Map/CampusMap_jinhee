@@ -18,6 +18,8 @@ const Card = () => {
         </>
       ),
       cardimage: "card1.jpg",
+      cardlink: "Campus Map 바로가기",
+      cardhref: "/Map",
     },
     card2: {
       cardtextheader: "Calendar",
@@ -30,6 +32,7 @@ const Card = () => {
         </>
       ),
       cardimage: "card2.jpg",
+      cardlink: "Calendar 바로가기",
     },
     card3: {
       cardtextheader: "Timetable",
@@ -42,6 +45,7 @@ const Card = () => {
         </>
       ),
       cardimage: "card3.jpg",
+      cardlink: "Timetable 바로가기",
     },
   };
   return (

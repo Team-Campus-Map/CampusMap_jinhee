@@ -4,7 +4,6 @@ import Logo from "../Logo/Logo";
 import MainMenuButton from "./MainMenuButton";
 import Scroll from "./Scroll";
 import Card from "./Card";
-import CardComponent from "./CardComponent";
 import Footer from "../Footer/Footer";
 import "../CSS/main.css";
 const Main = (props) => {
