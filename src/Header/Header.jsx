@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import headerstyles from "./header.module.css";
+import '../CSS/header.css'
 const Header = () => {
   return (
     <>
-      <Link to="/" className={headerstyles.link}>
-        <div className={headerstyles.title}>Campus Map</div>
+      <Link to="/" className="link">
+        <div className="title">Campus Map</div>
       </Link>
     </>
   );

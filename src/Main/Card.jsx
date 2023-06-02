@@ -46,6 +46,7 @@ const Card = () => {
       ),
       cardimage: "card3.jpg",
       cardlink: "Timetable 바로가기",
+      cardhref: "/Timetable",
     },
   };
   return (

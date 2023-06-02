@@ -111,6 +111,6 @@
   transition: 0.4s ease;
 }
 .card .cardText button:hover {
-  background: dodgerblue;
+  background: #90a17d;
   color: white;
 }
