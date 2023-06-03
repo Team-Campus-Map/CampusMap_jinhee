@@ -1,15 +1,15 @@
 import { useState } from "react";
-import Calendar from "react-calendar";
+import CalendarComponent from "react-calendar";
 import moment from "moment";
 import "../CSS/timetable.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Header from "../Header/Header";
-import TimetableModalInput from "./TimetableModalInput";
-import TimetableDetail from "./TimetableDetail";
+import CalendarModalInput from "./CalendarModalInput";
+import CalendarDetail from "./CalendarDetail";
 import Footer from "../Footer/Footer";
-const Timetable = () => {
+const Calendar = () => {
   const [date, setDate] = useState(new Date());
   const [showModal, setShowModal] = useState(false);
 
@@ -34,7 +34,7 @@ const Timetable = () => {
       <Header />
       <div className="timetable-body">
         <div className="calendar-container">
-          <Calendar
+          <CalendarComponent
             onChange={handleDateChange}
             value={date}
             defaultValue={date}
@@ -58,20 +58,20 @@ const Timetable = () => {
                   {" "}
                   {moment(date).format("YYYY년 MM월 DD일")}{" "}
                 </div>
-                <TimetableModalInput placeholder=" 일정 제목" />
+                <CalendarModalInput placeholder=" 일정 제목" />
                 <textarea
                   placeholder=" 일정 내용"
                   className="modal-input-detail"
                 />
-                <TimetableModalInput placeholder=" 세부 사항" />
+                <CalendarModalInput placeholder=" 세부 사항" />
                 <button className="modal-input-submit">등록하기</button>
               </div>
             </div>
           </div>
         )}
         <div className="timetable-Detail-Component-Group">
-          <TimetableDetail detailheader="오늘의 일정" />
-          <TimetableDetail detailheader="이번주 일정" />
+          <CalendarDetail detailheader="오늘의 일정" />
+          <CalendarDetail detailheader="이번주 일정" />
         </div>
       </div>
       <Footer />
@@ -79,4 +79,4 @@ const Timetable = () => {
   );
 };
 
-export default Timetable;
+export default Calendar;

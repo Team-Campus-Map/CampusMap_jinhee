@@ -47,7 +47,4 @@ const Main = (props) => {
     </>
   );
 };
-const HeaderStyle = styled.div`
-  color: white;
-`;
 export default Main;
