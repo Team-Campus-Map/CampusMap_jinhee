@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CalendarComponent from "react-calendar";
 import moment from "moment";
-import "../CSS/timetable.css";
+import "../CSS/calendar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -30,9 +30,9 @@ const Calendar = () => {
   };
 
   return (
-    <div className="timetable-header">
+    <div className="calendar-header">
       <Header />
-      <div className="timetable-body">
+      <div className="calendar-body">
         <div className="calendar-container">
           <CalendarComponent
             onChange={handleDateChange}
@@ -69,7 +69,7 @@ const Calendar = () => {
             </div>
           </div>
         )}
-        <div className="timetable-Detail-Component-Group">
+        <div className="calendar-Detail-Component-Group">
           <CalendarDetail detailheader="오늘의 일정" />
           <CalendarDetail detailheader="이번주 일정" />
         </div>
