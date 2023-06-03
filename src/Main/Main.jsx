@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Logo from "../Logo/Logo";
+import styled from "styled-components";
+import Header from "../Header/Header";
 import MainMenuButton from "./MainMenuButton";
 import Scroll from "./Scroll";
 import Card from "./Card";
 import Footer from "../Footer/Footer";
 import "../CSS/main.css";
+
 const Main = (props) => {
+  const headerStyle = {
+    color: "red",
+    fontSize: "16px",
+    fontWeight: "bold",
+  };
+
   const [isHeaderVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {
@@ -30,7 +37,7 @@ const Main = (props) => {
         className={`headerGroup ${isHeaderVisible ? "fade-in" : "fade-out"}`}
       >
         <div className="header">
-          <Logo />
+          <Header />
           <MainMenuButton />
         </div>
       </div>
@@ -40,5 +47,7 @@ const Main = (props) => {
     </>
   );
 };
-
+const HeaderStyle = styled.div`
+  color: white;
+`;
 export default Main;

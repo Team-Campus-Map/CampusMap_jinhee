@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
+import moment from "moment";
 import "../CSS/timetable.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -20,13 +21,27 @@ const Timetable = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+  // 월 이외의 날짜를 회색으로 표시하는 스타일
+  const tileClassName = ({ date, view }) => {
+    if (view === "month" && date.getMonth() !== new Date().getMonth()) {
+      return "grayed-out";
+    }
+    return null;
+  };
 
   return (
     <div className="timetable-header">
       <Header />
       <div className="timetable-body">
         <div className="calendar-container">
-          <Calendar onChange={handleDateChange} value={date} />
+          <Calendar
+            onChange={handleDateChange}
+            value={date}
+            defaultValue={date}
+            minDetail="year"
+            tileClassName={tileClassName}
+            formatDay={(locale, date) => moment(date).format("DD")}
+          />
         </div>
         {showModal && (
           <div className="modal">
@@ -39,12 +54,16 @@ const Timetable = () => {
               />
               <span>일정 입력하기</span>
               <div className="modal-input-content">
-                <div className="modal-date">{date.toDateString()}</div>
+                <div className="modal-date">
+                  {" "}
+                  {moment(date).format("YYYY년 MM월 DD일")}{" "}
+                </div>
                 <TimetableModalInput placeholder=" 일정 제목" />
-                <TimetableModalInput
+                <textarea
                   placeholder=" 일정 내용"
                   className="modal-input-detail"
                 />
+                <TimetableModalInput placeholder=" 세부 사항" />
                 <button className="modal-input-submit">등록하기</button>
               </div>
             </div>

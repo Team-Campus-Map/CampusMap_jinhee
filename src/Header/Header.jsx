@@ -4,7 +4,7 @@ import '../CSS/header.css'
 const Header = () => {
   return (
     <>
-      <Link to="/" className="link">
+      <Link to="/" className="headerlink">
         <div className="title">Campus Map</div>
       </Link>
     </>

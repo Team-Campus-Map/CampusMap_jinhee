@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../Logo/Logo";
+import Header from "../Header/Header";
 import Container from "./Container";
 const AuthPage = (props) => {
   return (
     <div className="loginBody">
-      <Logo />
+      <Header />
       <Container />
     </div>
   );

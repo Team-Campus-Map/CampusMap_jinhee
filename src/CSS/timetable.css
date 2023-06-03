@@ -184,6 +184,9 @@ abbr[title] {
 .react-calendar__tile:disabled {
   background-color: #f0f0f0;
 }
+.grayed-out {
+  color: gray;
+}
 .modal {
   width: 1517px;
   height: 100%;
@@ -207,9 +210,9 @@ abbr[title] {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   width: 500px;
-  height: 300px;
+  height: 410px;
   position: relative;
-  top: 18%;
+  top: 16%;
   padding: 10px;
 }
 .modal-content .modal-close {
@@ -232,7 +235,7 @@ abbr[title] {
 .modal-content .modal-date {
   padding: 8px;
   text-shadow: 1px 1px 2px gray;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 .modal-input-content {
   display: flex;
@@ -240,11 +243,26 @@ abbr[title] {
   align-items: center;
 }
 .modal-input {
-  width: 230px;
-  height: 30px;
-  margin: 10px 0 0 0;
+  width: 300px;
+  height: 40px;
   border: 0px;
-  border-radius: 6px;
+  background-color: #fff;
+  padding: 0.2rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  font-size: 0.881rem;
+}
+.modal-input-detail {
+  width: 300px;
+  height: 50px;
+  border: 0px;
+  background-color: #fff;
+  padding: 0.2rem;
+  margin: 0.5rem 0;
+  border-radius: 10px;
+  font-size: 0.881rem;
+  resize: none;
+  line-height: 1.6rem;
 }
 .modal-input-submit {
   width: 100px;
