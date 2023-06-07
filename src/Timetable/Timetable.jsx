@@ -17,15 +17,10 @@ function Timetable() {
     for (let i = startRowIndex; i < rows.length; i++) {
       const cells = rows[i].getElementsByTagName("td");
 
-      // Reset background color for all cells in the row
-      for (let j = 1; j < cells.length; j++) {
-        cells[j].classList.remove("red-background");
-      }
-
       if (rows[i].cells[0].innerHTML === dayOfWeek) {
         for (
-          let k = startCellIndex + 1;
-          k <= startCellIndex + continuousTeaching;
+          let k = startCellIndex;
+          k < startCellIndex + continuousTeaching;
           k++
         ) {
           cells[k].classList.add("red-background");

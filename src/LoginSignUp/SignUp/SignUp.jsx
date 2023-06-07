@@ -1,73 +1,120 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import "../../CSS/login.css";
-
 import SignUpInput from "./SignUpInput";
-import swal from "sweetalert";
+const SignUp = ({ onCreate }) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setpassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
+  const [phonenumber, setPhonenumber] = useState("");
+  const [checkPassword, setCheckPassword] = useState("📝패스워드 입력📝");
+  const signupInput = {
+    input1: {
+      name: "name",
+      placeholder: "이름",
+    },
+    input2: {
+      name: "email",
+      placeholder: "이메일",
+    },
+    input3: {
+      name: "phonenumber",
+      placeholder: "휴대폰 번호",
+    },
+  };
 
-const SignUp = (props) => {
-  const handleSignUp = () => {
-    const username = document.getElementById("username").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const passwordCheck = document.getElementById("passwordCheck").value;
-    const phoneNumber = document.getElementById("phoneNumber").value;
-    const agreedTerms = document.getElementById("agreedTerms").checked;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "name") {
+      setName(value);
+    } else if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setpassword(value);
+    } else if (name === "passwordCheck") {
+      setPasswordCheck(value);
+    } else if (name === "phonenumber") {
+      setPhonenumber(value);
+    }
 
-    const formData = {
-      username,
-      email,
-      password,
-      passwordCheck,
-      phoneNumber,
-      agreedTerms,
-    };
-    console.log(JSON.stringify(formData));
-
-    const loginResult = {
-      success: true,
-      username: "jinny",
-    };
-    if (loginResult.success) {
-      swal(
-        "회원가입 성공!",
-        username + "님, 회원가입이 완료되었습니다!",
-        "success"
-      );
-      // .then(() => {
-      //   window.location.href = `${pageContext.request.contextPath}/`;
-      // });
-    } else {
-      swal("회원가입 실패!", "다시 시도해주세요!", "warning");
+    if (name !== "name") {
+      setTimeout(handleCheck, 100);
     }
   };
 
-  return (
-    <div className="container__form container--signup">
-      <div className="form" id="form1">
-        <h2 className="form__title">Sign Up</h2>
-        <SignUpInput placeholder="Username" id="username" />
-        <SignUpInput placeholder="Email" id="email" />
-        <input
-          className="input inputpw"
-          placeholder="Password"
-          type="password"
-          id="password"
-        />
-        <input
-          className="input"
-          placeholder="Password Check"
-          type="password"
-          id="passwordCheck"
-        />
-        <SignUpInput placeholder="Phone number" id="phoneNumber" />
-        <input type="checkbox" className="checkbox" id="agreedTerms" />
+  const handleCheck = () => {
+    if (password.length < 1 || passwordCheck.length < 1) {
+      setCheckPassword("📝패스워드 입력📝");
+    } else if (password === passwordCheck) {
+      setCheckPassword("✅일치 ✅");
+    } else {
+      setCheckPassword("❌불일치 ❌");
+    }
+  };
 
-        <button className="btn" onClick={handleSignUp}>
-          Sign Up
-        </button>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onCreate({
+      name: name,
+      password: password,
+      passwordCheck: passwordCheck,
+    });
+
+    setName("");
+    setpassword("");
+    setPasswordCheck("");
+    setCheckPassword("📝패스워드 입력📝");
+  };
+  return (
+    <>
+      <div className="container__form container--signup">
+        <form className="form" id="form1" onSubmit={handleSubmit}>
+          <h2 className="form__title">Sign Up</h2>
+          <SignUpInput
+            {...signupInput.input1}
+            value={name}
+            onChange={handleChange}
+          />
+          <SignUpInput
+            {...signupInput.input2}
+            value={name}
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            className="input"
+            name="password"
+            onChange={handleChange}
+            value={password}
+            placeholder="비밀번호"
+          />
+          <input
+            type="password"
+            className="input"
+            name="passwordCheck"
+            onChange={handleChange}
+            value={passwordCheck}
+            placeholder="비밀번호 확인"
+          />
+
+          <SignUpInput
+            {...signupInput.input3}
+            value={name}
+            onChange={handleChange}
+          />
+          <button className="btn" type="submit">
+            Sign Up
+          </button>
+        </form>
       </div>
-    </div>
+
+      {/* <div className="showText">
+        <div>이름 : {name} </div>
+        <div>비밀번호 : {password}</div>
+        <div>비밀번호확인 : {passwordCheck}</div>
+        <div>일치여부 : {checkPassword}</div>
+      </div> */}
+    </>
   );
 };
 

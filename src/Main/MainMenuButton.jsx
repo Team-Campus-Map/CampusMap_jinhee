@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import MainMenu from "./MainMenu";
 
 const MainMenuButton = () => {
@@ -11,13 +11,21 @@ const MainMenuButton = () => {
       href: "/login",
       text: "Login",
     },
-    signup: {
-      href: "/signup",
-      text: "Sign Up",
+    logi: {
+      href: "/login",
+      text: "Login",
+    },
+    Mypage: {
+      href: "/Mypage",
+      text: "Mypage",
     },
   };
   const toggleMenu = () => {
     document.body.classList.toggle("open");
+  };
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
   return (
     <>
@@ -38,6 +46,7 @@ const MainMenuButton = () => {
       <div className="menuGroup">
         <MainMenu href={linkProps.about.href} text={linkProps.about.text} />
         <MainMenu href={linkProps.login.href} text={linkProps.login.text} />
+        <MainMenu href={linkProps.Mypage.href} text={linkProps.Mypage.text} />
       </div>
     </>
   );

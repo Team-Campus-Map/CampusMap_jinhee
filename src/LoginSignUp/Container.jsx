@@ -12,10 +12,10 @@ const Container = (props) => {
   const handleSignUpClick = () => {
     setContainerActive(true);
   };
+
   return (
     <div className={`container ${containerActive ? "right-panel-active" : ""}`}>
       <Login />
-      <SignUp />
       <div className="container__overlay">
         <div className="overlay">
           <div className="overlay__panel overlay--left">

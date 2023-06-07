@@ -5,6 +5,7 @@ import AuthPage from "./LoginSignUp/AuthPage";
 import FindPw from "./LoginSignUp/Login/FindPw";
 import Calendar from "./Calendar/Calendar";
 import Timetable from "./Timetable/Timetable";
+import Mypage from "./Mypage/Mypage";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
           <Route path="/FindPw" element={<FindPw />} />
           <Route path="/Calendar" element={<Calendar />} />
           <Route path="/Timetable" element={<Timetable />} />
+          {/* <Route path="/Mypage" element={<Mypage />} /> */}
         </Routes>
       </Router>
     </>
