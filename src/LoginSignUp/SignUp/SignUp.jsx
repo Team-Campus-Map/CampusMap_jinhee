@@ -1,27 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../../CSS/login.css";
-import SignUpInput from "./SignUpInput";
+import Swal from "sweetalert2";
 const SignUp = ({ onCreate }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
   const [phonenumber, setPhonenumber] = useState("");
-  const [checkPassword, setCheckPassword] = useState("📝패스워드 입력📝");
-  const signupInput = {
-    input1: {
-      name: "name",
-      placeholder: "이름",
-    },
-    input2: {
-      name: "email",
-      placeholder: "이메일",
-    },
-    input3: {
-      name: "phonenumber",
-      placeholder: "휴대폰 번호",
-    },
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,49 +21,65 @@ const SignUp = ({ onCreate }) => {
     } else if (name === "phonenumber") {
       setPhonenumber(value);
     }
-
-    if (name !== "name") {
-      setTimeout(handleCheck, 100);
-    }
-  };
-
-  const handleCheck = () => {
-    if (password.length < 1 || passwordCheck.length < 1) {
-      setCheckPassword("📝패스워드 입력📝");
-    } else if (password === passwordCheck) {
-      setCheckPassword("✅일치 ✅");
-    } else {
-      setCheckPassword("❌불일치 ❌");
-    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onCreate({
-      name: name,
-      password: password,
-      passwordCheck: passwordCheck,
+      name,
+      email,
+      password,
+      passwordCheck,
+      phonenumber,
     });
+    if (email.indexOf("@") !== -1) {
+      if (password === "" && passwordCheck === "") {
+        Swal.fire("회원가입 실패!", "비밀번호를 입력하세요.", "warning");
+      } else {
+        if (password !== passwordCheck) {
+          Swal.fire("회원가입 실패!", "비밀번호를 확인하세요.", "warning");
+        } else {
+          Swal.fire({
+            title: "회원가입 성공!",
+            text: name + "님, 회원가입이 완료되었습니다!",
+            icon: "success",
+          });
+        }
+      }
+    } else {
+      // console.log(`email error`);
+      Swal.fire("회원가입 실패!", "이메일형식을 확인하세요.", "warning");
+    }
 
     setName("");
+    setEmail("");
     setpassword("");
     setPasswordCheck("");
-    setCheckPassword("📝패스워드 입력📝");
+    setPhonenumber("");
+    // const loginResult = {
+    //   success: true,
+    // };
   };
   return (
     <>
       <div className="container__form container--signup">
         <form className="form" id="form1" onSubmit={handleSubmit}>
           <h2 className="form__title">Sign Up</h2>
-          <SignUpInput
-            {...signupInput.input1}
-            value={name}
+          <input
+            type="text"
+            className="input"
+            name="name"
             onChange={handleChange}
+            value={name}
+            placeholder="아이디"
           />
-          <SignUpInput
-            {...signupInput.input2}
-            value={name}
+          <input
+            type="text"
+            className="input"
+            name="email"
             onChange={handleChange}
+            value={email}
+            placeholder="이메일"
           />
           <input
             type="password"
@@ -96,24 +97,18 @@ const SignUp = ({ onCreate }) => {
             value={passwordCheck}
             placeholder="비밀번호 확인"
           />
-
-          <SignUpInput
-            {...signupInput.input3}
-            value={name}
+          <input
+            className="input"
+            name="phonenumber"
             onChange={handleChange}
+            value={phonenumber}
+            placeholder="휴대폰 번호"
           />
           <button className="btn" type="submit">
             Sign Up
           </button>
         </form>
       </div>
-
-      {/* <div className="showText">
-        <div>이름 : {name} </div>
-        <div>비밀번호 : {password}</div>
-        <div>비밀번호확인 : {passwordCheck}</div>
-        <div>일치여부 : {checkPassword}</div>
-      </div> */}
     </>
   );
 };

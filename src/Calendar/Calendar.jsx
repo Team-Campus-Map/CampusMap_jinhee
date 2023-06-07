@@ -42,7 +42,7 @@ const Calendar = () => {
 
   const handleAddData = () => {
     const eventData = {
-      date: date.toDateString(), // 선택된 날짜 추가
+      date: date.toDateString(),
       title: document.getElementById("title").value,
       description: document.getElementById("description").value,
       details: document.getElementById("details").value,
@@ -110,7 +110,7 @@ const Calendar = () => {
             detailheader="오늘의 일정"
             events={events}
             onRemoveEvent={removeEvent}
-            selectedDate={date} // 선택된 날짜 전달
+            selectedDate={date}
           />
         </div>
       </div>

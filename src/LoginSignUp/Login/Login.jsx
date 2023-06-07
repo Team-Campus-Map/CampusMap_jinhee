@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SignUp from "../SignUp/SignUp";
 import "../../CSS/login.css";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 const LoginPage = () => {
   const [memberInfo, setMemberInfo] = useState([]);
   const [loginName, setLoginName] = useState("");
@@ -22,11 +23,21 @@ const LoginPage = () => {
       trimmedPassword === memberInfo[0].password.toString()
     ) {
       setLoginSuccess("로그인 성공!");
+      Swal.fire({
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
+      });
       setTimeout(() => {
         navigate("/");
-      }, 1000);
+      }, 1500);
     } else {
       setLoginSuccess("로그인 불가!");
+      Swal.fire({
+        icon: "error",
+        title: "로그인 불가",
+        text: "이름과 비밀번호를 다시 확인하세요!",
+      });
     }
   };
   console.log(memberInfo);
@@ -61,9 +72,10 @@ const LoginPage = () => {
             name="loginName"
             onChange={handleChange}
             value={loginName}
-            placeholder="이름"
+            placeholder="아이디"
           />
           <input
+            type="password"
             className="input"
             name="loginPassword"
             onChange={handleChange}
