@@ -5,7 +5,7 @@ import TimetableInput from "./TimetableInput";
 import Footer from "../Footer/Footer";
 
 function Timetable(props) {
-  const inputlabel = {
+  const inputLabel = {
     lable1: {
       htmlFor: "dayOfWeek",
       labelText: "해당 수업의 요일을 선택하세요",
@@ -107,6 +107,7 @@ function Timetable(props) {
       },
     ],
   };
+  const [inputClassName, setInputClassName] = useState("");
   const [dayOfWeek, setDayOfWeek] = useState("");
   const [continuousTeaching, setContinuousTeaching] = useState(0);
   const [startTeaching, setStartTeaching] = useState(0);
@@ -115,7 +116,7 @@ function Timetable(props) {
     const table = document.getElementsByTagName("table")[0];
     const rows = table.getElementsByTagName("tr");
 
-    const startRowIndex = 1; // Skip header row
+    const startRowIndex = 1;
     const startCellIndex = startTeaching;
 
     for (let i = startRowIndex; i < rows.length; i++) {
@@ -128,9 +129,21 @@ function Timetable(props) {
           k++
         ) {
           cells[k].classList.add("red-background");
+          cells[k].innerHTML = inputClassName;
+          cells[k].colSpan = continuousTeaching;
+          break;
         }
+        // //td삭제
+        // for (let j = startCellIndex + 1; j < continuousTeaching; j++) {
+        //   cells[8 - j].classList.add("remove");
+        //   cells[8 - j].remove();
+        // }
       }
     }
+  };
+
+  const handleInputClassName = (event) => {
+    setInputClassName(event.target.value.toString());
   };
 
   const handleDayOfWeekChange = (event) => {
@@ -174,7 +187,7 @@ function Timetable(props) {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td className="dddd"></td>
                 <td></td>
                 <td></td>
               </tr>
@@ -231,8 +244,14 @@ function Timetable(props) {
         </div>
         <div className="timetable-select">
           <h3>시간표 입력</h3>
-          <input type="text" id="inputtext" placeholder="수업명을 입력하세요" />
-          <TimetableInput {...inputlabel.lable1} />
+          <input
+            type="text"
+            value={inputClassName}
+            id="inputClassName"
+            placeholder="수업명을 입력하세요"
+            onChange={handleInputClassName}
+          />
+          <TimetableInput {...inputLabel.lable1} />
           <select
             id="dayOfWeek"
             value={dayOfWeek}
@@ -244,7 +263,7 @@ function Timetable(props) {
               </option>
             ))}
           </select>
-          <TimetableInput {...inputlabel.lable2} />
+          <TimetableInput {...inputLabel.lable2} />
           <select
             id="startTeaching"
             value={startTeaching}
@@ -256,7 +275,7 @@ function Timetable(props) {
               </option>
             ))}
           </select>
-          <TimetableInput {...inputlabel.lable3} />
+          <TimetableInput {...inputLabel.lable3} />
           <select
             id="continuousTeaching"
             value={continuousTeaching}
