@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MainMenu from "./MainMenu";
-
+import "../CSS/main.css";
 const MainMenuButton = () => {
   const linkProps = {
     about: {
@@ -8,10 +8,6 @@ const MainMenuButton = () => {
       text: "About",
     },
     login: {
-      href: "/login",
-      text: "Login",
-    },
-    logi: {
       href: "/login",
       text: "Login",
     },
@@ -44,9 +40,11 @@ const MainMenuButton = () => {
       </div>
       <div className="menu-background"></div>
       <div className="menuGroup">
-        <MainMenu href={linkProps.about.href} text={linkProps.about.text} />
-        <MainMenu href={linkProps.login.href} text={linkProps.login.text} />
-        <MainMenu href={linkProps.Mypage.href} text={linkProps.Mypage.text} />
+        <nav className="menulink">
+          <MainMenu href={linkProps.about.href} text={linkProps.about.text} />
+          <MainMenu href={linkProps.login.href} text={linkProps.login.text} />
+          <MainMenu href={linkProps.Mypage.href} text={linkProps.Mypage.text} />
+        </nav>
       </div>
     </>
   );

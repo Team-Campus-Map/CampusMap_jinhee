@@ -1,10 +1,8 @@
 import React from "react";
-const MainMenu = ({ href,text }) => {
+const MainMenu = ({ href, text }) => {
   return (
     <>
-      <nav>
-        <a href={href} className="menulink">{text}</a>
-      </nav>
+      <a href={href}>{text}</a>
     </>
   );
 };

@@ -1,50 +1,61 @@
 import React from "react";
-import FooterContentGoLink from "./FooterContentGoLink";
+import MainMenu from "../Main/MainMenu";
+import "../CSS/main.css";
 const FooterContent = (props) => {
+  const footerlink = {
+    about: {
+      href: "/about",
+      text: "About",
+    },
+    campusMap: {
+      href: "/Map",
+      text: "Campus Map",
+    },
+    calendar: {
+      href: "/Calendar",
+      text: "Calendar",
+    },
+    timetable: {
+      href: "/Timetable",
+      text: "Timetable",
+    },
+  };
   return (
     <>
       <footer>
         <div className="footer">
           <h3>Connect</h3>
-          <ul className="socials">
-            <li>
-              <a href="#">
-                <i className="fa fa-facebook"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-github"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-linkedin-square"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="fa fa-instagram"></i>
-              </a>
-            </li>
-          </ul>
-          <div className="footer-copyright">
-            <p>Copyright &copy;2023 LD all rights reserved. </p>
-          </div>
+          <a
+            className="socials"
+            href="https://github.com/Team-Campus-Map/CampusMap.git"
+          >
+            <i className="fa fa-github"></i>
+          </a>
         </div>
       </footer>
-      <div className="column link">
-        <h3>Links</h3>
-        <FooterContentGoLink link="About" />
-        <FooterContentGoLink link="Campus Map" />
-        <FooterContentGoLink link="Calendar" />
-        <FooterContentGoLink link="TimeTable" />
-        <FooterContentGoLink link="QnA" />
+      <div className="column">
+        <h3>More</h3>
+        <div className="footer-link">
+          <MainMenu href={footerlink.about.href} text={footerlink.about.text} />
+          {"·"}
+          <MainMenu
+            href={footerlink.campusMap.href}
+            text={footerlink.campusMap.text}
+          />
+          {"·"}
+          <MainMenu
+            href={footerlink.calendar.href}
+            text={footerlink.calendar.text}
+          />
+          {"·"}
+          <MainMenu
+            href={footerlink.timetable.href}
+            text={footerlink.timetable.text}
+          />
+        </div>
+      </div>
+      <div className="footer-copyright">
+        <p>Copyright &copy;2023 CampusMap all rights reserved. </p>
       </div>
     </>
   );

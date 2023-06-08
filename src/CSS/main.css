@@ -173,7 +173,7 @@ body.open .menuGroup {
   align-items: flex-start;
   padding-left: 100px;
 }
-.menuGroup .menulink {
+.menuGroup .menulink a {
   position: relative;
   color: #f9f9f9;
   font-size: 23px;
@@ -182,7 +182,7 @@ body.open .menuGroup {
   opacity: 0;
   transition: 0.4s;
 }
-.menuGroup .menulink::after {
+.menuGroup .menulink a::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -196,7 +196,7 @@ body.open .menuGroup {
   rotate: 45deg;
   transition: 0.3s;
 }
-.menuGroup .menulink:hover::after {
+.menuGroup .menulink a:hover::after {
   opacity: 1;
 }
 @keyframes appear {
@@ -208,7 +208,7 @@ body.open .menuGroup {
     opacity: 1;
   }
 }
-body.open .menuGroup .menulink {
+body.open .menuGroup .menulink a {
   opacity: 1;
   animation: appear 0.35s backwards;
 }

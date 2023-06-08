@@ -1,8 +1,112 @@
 import React, { useState } from "react";
 import "../CSS/timetable.css";
 import Header from "../Header/Header";
+import TimetableInput from "./TimetableInput";
 import Footer from "../Footer/Footer";
-function Timetable() {
+
+function Timetable(props) {
+  const inputlabel = {
+    lable1: {
+      htmlFor: "dayOfWeek",
+      labelText: "해당 수업의 요일을 선택하세요",
+    },
+    lable2: {
+      htmlFor: "startTeaching",
+      labelText: "수업의 시작 교시를 선택하세요",
+    },
+    lable3: {
+      htmlFor: "continuousTeaching",
+      labelText: "수업의 연속 교시를 선택하세요",
+    },
+  };
+  const inputOption = {
+    option1: [
+      {
+        value: "",
+        name: "요일 선택",
+      },
+      {
+        value: "Monday",
+        name: "Monday",
+      },
+      {
+        value: "Tuesday",
+        name: "Tuesday",
+      },
+      {
+        value: "Wednesday",
+        name: "Wednesday",
+      },
+      {
+        value: "Thursday",
+        name: "Thursday",
+      },
+      {
+        value: "Friday",
+        name: "Friday",
+      },
+    ],
+    option2: [
+      {
+        value: "1",
+        name: "1교시 (9 am)",
+      },
+      {
+        value: "2",
+        name: "2교시",
+      },
+      {
+        value: "3",
+        name: "3교시",
+      },
+      {
+        value: "4",
+        name: "4교시 (12 pm)",
+      },
+      {
+        value: "5",
+        name: "5교시",
+      },
+      {
+        value: "6",
+        name: "6교시",
+      },
+      {
+        value: "7",
+        name: "7교시",
+      },
+      {
+        value: "8",
+        name: "8교시",
+      },
+      {
+        value: "9",
+        name: "9교시",
+      },
+    ],
+    option3: [
+      {
+        value: "0",
+        name: "시간",
+      },
+      {
+        value: "1",
+        name: "1시간",
+      },
+      {
+        value: "2",
+        name: "2시간",
+      },
+      {
+        value: "3",
+        name: "3시간",
+      },
+      {
+        value: "4",
+        name: "4시간",
+      },
+    ],
+  };
   const [dayOfWeek, setDayOfWeek] = useState("");
   const [continuousTeaching, setContinuousTeaching] = useState(0);
   const [startTeaching, setStartTeaching] = useState(0);
@@ -57,11 +161,15 @@ function Timetable() {
                 <th> 5교시 </th>
                 <th> 6교시 </th>
                 <th> 7교시 </th>
+                <th> 8교시 </th>
+                <th> 9교시 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Monday</td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -79,9 +187,13 @@ function Timetable() {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
                 <td>Wednesday</td>
+                <td></td>
+                <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -99,6 +211,8 @@ function Timetable() {
                 <td></td>
                 <td></td>
                 <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
                 <td>Friday</td>
@@ -109,67 +223,50 @@ function Timetable() {
                 <td></td>
                 <td></td>
                 <td></td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
                 <td></td>
                 <td></td>
               </tr>
-              {/* Repeat rows for other days of the week */}
             </tbody>
           </table>
         </div>
         <div className="timetable-select">
           <h3>시간표 입력</h3>
           <input type="text" id="inputtext" placeholder="수업명을 입력하세요" />
-          <br />
-          <label htmlFor="dayOfWeek">해당 수업의 요일을 선택하세요</label>
+          <TimetableInput {...inputlabel.lable1} />
           <select
             id="dayOfWeek"
             value={dayOfWeek}
             onChange={handleDayOfWeekChange}
           >
-            <option value="">요일 선택</option>
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
+            {inputOption.option1.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.name}
+              </option>
+            ))}
           </select>
-          <br />
-          <label htmlFor="startTeaching">수업의 시작 교시를 선택하세요</label>
+          <TimetableInput {...inputlabel.lable2} />
           <select
             id="startTeaching"
             value={startTeaching}
             onChange={handleStartTeachingChange}
           >
-            <option value="1">1교시</option>
-            <option value="2">2교시</option>
-            <option value="3">3교시</option>
-            <option value="4">4교시</option>
-            <option value="5">5교시</option>
-            <option value="6">6교시</option>
-            <option value="7">7교시</option>
+            {inputOption.option2.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.name}
+              </option>
+            ))}
           </select>
-          <br />
-          <label htmlFor="continuousTeaching">
-            수업의 연속 교시를 선택하세요
-          </label>
+          <TimetableInput {...inputlabel.lable3} />
           <select
             id="continuousTeaching"
             value={continuousTeaching}
             onChange={handleContinuousTeachingChange}
           >
-            <option value="0">시간</option>
-            <option value="1">1시간</option>
-            <option value="2">2시간</option>
-            <option value="3">3시간</option>
-            <option value="4">4시간</option>
+            {inputOption.option3.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.name}
+              </option>
+            ))}
           </select>
           <br />
           <br />
