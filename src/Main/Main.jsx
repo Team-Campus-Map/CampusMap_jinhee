@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import Header from "../Header/Header";
 import MainMenuButton from "./MainMenuButton";
 import Scroll from "./Scroll";
@@ -8,12 +7,6 @@ import Footer from "../Footer/Footer";
 import "../CSS/main.css";
 
 const Main = (props) => {
-  const headerStyle = {
-    color: "red",
-    fontSize: "16px",
-    fontWeight: "bold",
-  };
-
   const [isHeaderVisible, setHeaderVisible] = useState(true);
 
   useEffect(() => {

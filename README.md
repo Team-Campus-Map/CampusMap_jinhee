@@ -19,3 +19,5 @@
 ### `yarn add moment`
 
 ### npm은 yarn add 대신 npm install ~하면 됨 ex. npm install date-fns --save
+### `yarn add react-slick`
+### `yarn add -D slick-carouse`

@@ -114,7 +114,6 @@ const Calendar = () => {
           />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

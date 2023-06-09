@@ -43,6 +43,9 @@ body {
   justify-content: space-between;
   padding: 3% 0;
 }
+.header div {
+  color: white;
+}
 .logo-link {
   display: inline-flex;
   align-items: center;
@@ -159,7 +162,7 @@ body.open .menuGroup {
 .menuGroup {
   z-index: 3;
   position: absolute;
-  margin-right: 4%;
+  margin-right: 2.4rem;
   align-items: center;
   transition: 0.05s;
   top: 21%;

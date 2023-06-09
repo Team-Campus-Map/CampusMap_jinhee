@@ -184,8 +184,8 @@ abbr[title] {
   color: gray;
 }
 .modal {
-  width: 1517px;
-  height: 100%;
+  width: 1534px;
+  height: 711px;
   position: absolute;
   left: 0;
   top: 0;
@@ -208,7 +208,7 @@ abbr[title] {
   width: 500px;
   height: 410px;
   position: relative;
-  top: 16%;
+  top: 22%;
   padding: 10px;
 }
 .modal-content .modal-close {
@@ -227,6 +227,8 @@ abbr[title] {
   display: inline-block;
   font-size: 22px;
   font-weight: 700;
+  width: 90%;
+  text-align: center;
 }
 .modal-content .modal-date {
   padding: 8px;
