@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../CSS/timetable.css";
 import Header from "../Header/Header";
 import TimetableInput from "./TimetableInput";
-import Footer from "../Footer/Footer";
 
 function Timetable(props) {
   const inputLabel = {
@@ -244,13 +243,16 @@ function Timetable(props) {
         </div>
         <div className="timetable-select">
           <h3>시간표 입력</h3>
-          <input
-            type="text"
-            value={inputClassName}
-            id="inputClassName"
-            placeholder="수업명을 입력하세요"
-            onChange={handleInputClassName}
-          />
+          <div className="timetable-select-input">
+            <input
+              type="text"
+              value={inputClassName}
+              id="inputClassName"
+              placeholder="수업명을 입력하세요"
+              onChange={handleInputClassName}
+            />
+          </div>
+
           <TimetableInput {...inputLabel.lable1} />
           <select
             id="dayOfWeek"
@@ -292,7 +294,6 @@ function Timetable(props) {
           <button onClick={setRedBackground}>입력하기</button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

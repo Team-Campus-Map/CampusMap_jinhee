@@ -1,14 +1,3 @@
-:root {
-  --blue: #dba39a;
-  --lightblue: #fff5e4;
-  --gray: #333;
-}
-body {
-  font-family: "Ubuntu", sans-serif;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 .loginBody {
   width: 100%;
   height: 713px;
@@ -29,7 +18,7 @@ body {
   opacity: 0.3;
 }
 .headerGroup {
-  height: 600px;
+  height: 650px;
   background: url("/public/img/banner2.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -151,7 +140,7 @@ body {
 }
 body.open .menu-background {
   width: 11%;
-  height: 602px;
+  height: 650px;
   opacity: 0.8;
   border-radius: 0px 0px 130px 0px;
 }
@@ -165,7 +154,7 @@ body.open .menuGroup {
   margin-right: 2.4rem;
   align-items: center;
   transition: 0.05s;
-  top: 21%;
+  top: 25%;
   right: 0;
 }
 

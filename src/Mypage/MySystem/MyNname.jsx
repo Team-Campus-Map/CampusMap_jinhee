@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Mypage.css';
+
 class MyNname extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class MyNname extends Component {
 
   render() {
     return (
-      <h7>현재 이름: {this.state.Nname}</h7>
+      <h3>{this.state.Nname}</h3>
     );
   }
 }

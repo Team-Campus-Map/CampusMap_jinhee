@@ -64,7 +64,7 @@ const LoginPage = () => {
           {JSON.stringify(memberInfo)}
         </span>
       </div> */}
-      <div className="container__form container--signin">
+      <div className="login-container__form login-container--signin">
         <form className="form" id="form2" onSubmit={handleSubmit}>
           <h2 className="form__title">Login</h2>
           <input

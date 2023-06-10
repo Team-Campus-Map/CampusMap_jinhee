@@ -10,8 +10,7 @@ const MapDetail = ({ buttonClick }) => {
         <div className="map-detail-Container-title">Campus Map 건물별 정보</div>
         <div className="map-detail-Container-body">
           <div className="map-detail-Container-body-button">
-            <MapDetailButton buttonName="건물별로 보기" />
-            <MapDetailButton buttonName="편의시설별로 보기" />
+            <MapDetailButton />
           </div>
           {/* <MapDetailComponent {...detailheader.cardHeader1} />
           <MapDetailComponent {...detailbody.card1} /> */}

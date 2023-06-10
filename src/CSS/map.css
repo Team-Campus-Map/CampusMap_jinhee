@@ -24,7 +24,7 @@
   display: flex;
 }
 .map-detail-body {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.597);
   width: 40%;
   border-radius: 1rem;
 }
@@ -38,7 +38,6 @@
   height: 77%;
   border-radius: 10px;
   align-items: center;
-  background-color: #c7dfc4;
   padding-top: 1rem;
   overflow: auto;
   margin: 0 auto;
@@ -69,6 +68,7 @@
   cursor: pointer;
   transition: 0.4s ease;
   width: 30%;
+  background: #90a17d;
   margin: 0 1rem;
 }
 .detail-button:hover {
@@ -86,6 +86,35 @@
   text-align: left;
   letter-spacing: 0.2rem;
 }
+.mapModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 4rem;
+  position: fixed;
+}
+.mapModal-content {
+  background: #e0e6ca;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 500px;
+  height: 370px;
+  bottom: 4rem;
+  padding: 10px;
+}
+.mapModal-content .modal-close {
+  display: inline;
+  float: right;
+  padding-right: 10px;
+  margin-top: 12px;
+  cursor: pointer;
+  text-shadow: 1px 1px 2px gray;
+  border: 0px;
+  color: white;
+}
 .modal-header {
   width: 5rem;
   font-weight: bold;
@@ -94,7 +123,7 @@
 }
 .modal-header div {
   text-align: center;
-  line-height: 100px;
+  line-height: 50px;
 }
 .modal-body div {
   margin: 1rem;
@@ -102,9 +131,9 @@
 }
 .detail-button-modal-header {
   width: 400px;
-  height: 350px;
-  overflow: auto; /* 스크롤을 활성화합니다. */
-  padding: 20px;
+  height: 330px;
+  overflow: auto;
+  margin: 20px;
 }
 .detail-button-modal-header::-webkit-scrollbar {
   width: 10px;

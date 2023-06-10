@@ -20,7 +20,7 @@ function App() {
           <Route path="/Calendar" element={<Calendar />} />
           <Route path="/Timetable" element={<Timetable />} />
           <Route path="/Map" element={<Map />} />
-          {/* <Route path="/Mypage" element={<Mypage />} /> */}
+          <Route path="/Mypage" element={<Mypage />} />
         </Routes>
       </Router>
     </>

@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import "./Mypage.css";
-import Schedule from "./Schdule/MySchedul";
+import "../CSS/mypage.css";
+import Schedule from "./Schdule/MySchedule";
 import MySystem from "./MySystem/MySystem";
-// import 'bootstrap/dist/css/bootstrap.css'
+import MyNname from "./MySystem/MyNname";
+import Myinformation from "./MySystem/Myinformation";
+import Header from "../Header/Header";
 
 const Mypage = (props) => {
   return (
     <>
-      <div className="headerGroup">
-        <div style={{ textAlign: "right" }}>
+      <div className="mypage-header">
+        <Header />
+        <div>
           <MySystem />
         </div>
       </div>
-      <Schedule />
     </>
   );
 };

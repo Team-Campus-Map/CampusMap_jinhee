@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Login from "./Login/Login";
 import "../CSS/login.css";
-import SignUp from "./SignUp/SignUp";
 
 const Container = (props) => {
   const [containerActive, setContainerActive] = useState(false);
@@ -14,9 +13,13 @@ const Container = (props) => {
   };
 
   return (
-    <div className={`container ${containerActive ? "right-panel-active" : ""}`}>
+    <div
+      className={`login-container ${
+        containerActive ? "right-panel-active" : ""
+      }`}
+    >
       <Login />
-      <div className="container__overlay">
+      <div className="login-container__overlay">
         <div className="overlay">
           <div className="overlay__panel overlay--left">
             <button className="btn" onClick={handleSignInClick}>

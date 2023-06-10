@@ -62,7 +62,7 @@ const SignUp = ({ onCreate }) => {
   };
   return (
     <>
-      <div className="container__form container--signup">
+      <div className="login-container__form login-container--signup">
         <form className="form" id="form1" onSubmit={handleSubmit}>
           <h2 className="form__title">Sign Up</h2>
           <input
