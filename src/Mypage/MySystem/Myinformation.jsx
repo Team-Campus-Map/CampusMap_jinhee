@@ -18,8 +18,8 @@ class Myinformation extends Component {
   change = (e) => {
     var val = e.target.value;
     this.setState({
-      inputnameval: val, // 이름 변경을 위한 입력값
-      inputemailval: val, // 이메일 변경을 위한 입력값
+      inputnameval: val, 
+      inputemailval: val, 
     });
   };
 
@@ -29,7 +29,7 @@ class Myinformation extends Component {
         name: this.state.inputnameval,
       },
       () => {
-        this.saveAlert("이름 저장", "center"); // 이름 변경 알림 메시지
+        this.saveAlert("이름 저장", "center"); 
       }
     );
   };
@@ -40,7 +40,7 @@ class Myinformation extends Component {
         email: this.state.inputemailval,
       },
       () => {
-        this.saveAlert("이메일 저장", "center"); // 이메일 변경 알림 메시지
+        this.saveAlert("이메일 저장", "center"); 
       }
     );
   };
