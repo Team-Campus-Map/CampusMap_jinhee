@@ -28,6 +28,8 @@ const FooterContent = (props) => {
           <a
             className="socials"
             href="https://github.com/Team-Campus-Map/CampusMap.git"
+            target="_blank"
+            rel="noreferrer"
           >
             <i className="fa fa-github"></i>
           </a>

@@ -35,7 +35,7 @@
 }
 
 .timetable-table {
-  width: 58%;
+  width: 67%;
   height: 100%;
   table-layout: fixed;
   border-collapse: collapse;
@@ -45,17 +45,21 @@
   border: 3px solid #ffffff;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
-  margin: 0 2%;
-  padding: 47px;
+  margin: 0 2% 0 0;
+  padding: 47px 10px;
   opacity: 0.9;
 }
-
+.timetable-table table {
+  width: 1000px;
+  table-layout: fixed;
+}
 .timetable-table td {
   width: 8%;
   padding: 16px;
   text-align: center;
   border: 1px solid rgb(194, 194, 194);
   border-radius: 5px;
+  font-size: 15px;
 }
 
 .red-background {
@@ -63,7 +67,7 @@
 }
 .timetable-select {
   width: 360px;
-  height: 345px;
+  height: 395px;
   margin-bottom: 20px;
   background-color: white;
   border-radius: 10px;

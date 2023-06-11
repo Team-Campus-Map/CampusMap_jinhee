@@ -48,7 +48,7 @@ export default function CampusIntrodc() {
           <div>
             <h3>
               <h4 className="shooltage1">
-                <img src="/img/bu3.jpg" height={300} />
+                <img src="/img/about3.png" height={370} />
                 <p>
                   시간표 작성, 수업 일정 등 편리한 학업 관리가 가능합니다.
                   <br />

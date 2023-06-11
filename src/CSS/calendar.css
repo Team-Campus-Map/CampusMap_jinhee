@@ -361,7 +361,7 @@ input[type="checkbox"]:checked {
   font-weight: 600;
 }
 .event-item-description div {
-  margin: 0.3rem 0 0.3rem 2rem;
+  margin: 0.3rem 0 0.3rem 1.3rem;
 }
 .remove-button {
   margin-top: 1rem;

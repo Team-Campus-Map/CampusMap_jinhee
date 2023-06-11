@@ -119,6 +119,7 @@ function Timetable(props) {
     const startCellIndex = startTeaching;
 
     for (let i = startRowIndex; i < rows.length; i++) {
+      console.log(i);
       const cells = rows[i].getElementsByTagName("td");
 
       if (rows[i].cells[0].innerHTML === dayOfWeek) {
@@ -127,16 +128,10 @@ function Timetable(props) {
           k < startCellIndex + continuousTeaching;
           k++
         ) {
+          console.log(k);
           cells[k].classList.add("red-background");
           cells[k].innerHTML = inputClassName;
-          cells[k].colSpan = continuousTeaching;
-          break;
         }
-        // //td삭제
-        // for (let j = startCellIndex + 1; j < continuousTeaching; j++) {
-        //   cells[8 - j].classList.add("remove");
-        //   cells[8 - j].remove();
-        // }
       }
     }
   };
